@@ -1,16 +1,36 @@
-BSc Electronics graduate with more than 2 years of experience as a Hardware Service Engineer in IT AMC operations, specializing in computer hardware troubleshooting, chip-level diagnostics, and system maintenance. Strong foundation in electronics, circuit analysis, and technical problem-solving. Currently pursuing training in Embedded Systems and EV Technology, with knowledge of microcontrollers and C programming. Seeking an entry-level role in electronics, embedded systems, or EV-related domains to apply hands-on technical expertise and grow as a professional engineer.
+ #include <stdio.h>
 
+int main()
+{
+    int arr[100], n, i;
+    int largest, second;
 
-overleaf
+    printf("Enter number of elements: ");
+    scanf("%d",&n);
 
-flow cv
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d",&arr[i]);
+    }
 
-teal
+    largest = arr[0];
+    second = arr[0];
 
-1)duplicate an array of size 'n', and find the 2nd largest element in that array.
-2) Print the upward pyramid pattern using *
-   *
-  ***
- *****
-*******
-3) Write a c code with 3 functions to set a bit, clear a bit, and toggle a bit. then set the 3rd bit, clear the 5th bit and toggle the 2nd bit.
+    for(i = 1; i < n; i++)
+    {
+        if(arr[i] > largest)
+        {
+            second = largest;
+            largest = arr[i];
+        }
+        else if(arr[i] > second)
+        {
+            second = arr[i];
+        }
+    }
+
+    printf("Second largest element = %d", second);
+
+    return 0;
+}
