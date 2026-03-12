@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void BitSet(int num, int pos1);
+void BitClear(int num, int pos2);
+void BitToggle(int num, int pos3);
+void Dec2Bin(int num);
+
+int pos1=3,pos2=5,pos3=2;
+
+int main()
+{
+    int num;
+
+    printf("Enter the number: ");
+    scanf("%d",&num);
+
+    printf("\nBinary of the number: ");
+    Dec2Bin(num);
+
+    printf("\nNumber after set the 3rd bit: ");
+    BitSet(num, pos1);
+
+    printf("\nNumber after clear the 5th bit: ");
+    BitClear(num, pos2);
+
+    printf("\nNumber after toggle the 2nd bit: ");
+    BitToggle(num, pos3);
+
+    return 0;
+}
+
+void Dec2Bin(int num)
+{
+    for(int i=7;i>=0;i--)
+    {
+        if(num & (1<<i))
+            printf("1");
+        else
+            printf("0");
+    }
+}
+
+void BitSet(int num,int pos1)
+{
+    num = num | (1<<pos1);
+    Dec2Bin(num);
+}
+
+void BitClear(int num,int pos2)
+{
+    num = num & ~(1<<pos2);
+    Dec2Bin(num);
+}
+
+void BitToggle(int num,int pos3)
+{
+    num = num ^ (1<<pos3);
+    Dec2Bin(num);
+}
